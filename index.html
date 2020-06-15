@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>홈페이지 만들기</title>
+    
+   <style>
+    body {
+      background-image: url('image/낙타.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #logo{
+    float:left;
+    }
+    #login{
+    float:right;
+    }
+    section.content{
+    width:100%;
+    height:400px;
+    background-color:red;
+    clear: both;
+    }
+    header>ul{
+    clear: both;
+    list-style: none;
+    }
+    header>ul>li{
+    padding: 40px;
+    display: inline-block;
+    }
+    h1{
+      float:center;
+      color: orangered;
+      font-family: monospace;
+      text-align: center;
+    }
+    h2{
+      color: powderblue;
+    }
+    fieldset{
+      float: right;
+    }
+    #area1 {
+      width: 300px;
+      height: 70px;
+    }
+    button {
+      margin: 10px 0;
+    }
+    form {
+        margin-left: auto;
+        margin-right: auto;        
+    }  
+    h4{
+      color: midnightblue;
+    }
+
+    </style>
+    </head>
+    
+    <body>
+      <header>
+        <h1>Welcome to Sunwoo's WORLD!!!</h1>
+        <br>
+        
+        <hr>
+        
+        <ul>
+          <li><a href="01_introduction.html">자기소개</a></li>
+          <li><a href="02_roadmap.html">로드맵</a></li>
+          <li><a href="03_gallery.html">갤러리</a></li>
+          <!-- <li><a href="#">자료실</a></li>
+          <li><a href="#">자유게시판</a></li> -->
+        </ul>
+        
+        <hr>
+        
+        <fieldset value="로그인" >
+          <section id='content'>
+            <table id="login">
+              <tr>
+                <td>아이디</td>
+                <td><input type="id" name="id" id='id'/></td>
+              </tr>
+              
+              <tr>
+                <td>패스워드</td>
+                <td><input type="password" name="pw" id='pw'/></td>
+              </tr>
+              
+              <tr>
+                <td colspan="2">
+                  <input type="submit" value="로그인"/>
+                  <input type="reset" value="회원가입"/>
+                  <input type="submit" value="아이디/비밀번호 찾기">
+                </td>
+              </tr>
+            </table>
+          </section>
+        </fieldset>
+        
+      </header>
+      
+      
+      <div id="area1"></div>
+      <button type="button" onclick="startClock();">오늘의 날짜, 시간 확인하기</button>
+      
+      <script>
+        function startClock(){
+        test4();
+        setInterval(test4, 1000);
+      }
+      function test4(){
+        let now = new Date();
+        let yyyy = now.getFullYear();
+        let mm = get2digit(now.getMonth()+1);
+        let dd = get2digit(now.getDate());
+    
+        let hh = get2digit(now.getHours()); 
+        let mi = get2digit(now.getMinutes());
+        let ss = get2digit(now.getSeconds());
+    
+        let s1 = yyyy + "/" + mm + "/" + dd;
+        let s2 = hh + ":" + mi + ":" + ss;
+    
+        area1.innerHTML = "<h3>"+s1+"</h3>";
+        area1.innerHTML += "<h3>"+s2+"</h3>";
+      }    
+      function get2digit(num){
+        if(num<10)
+          return "0"+num;
+        else 
+          return num;
+      }
+      </script>
+    
+    <h4>구글 검색 기능</h4>
+    <form method=get action="http://www.google.co.kr/search" target="_blank">
+      <table bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <input type="text" name="q" size="25" maxlength="255" value="">
+            <input type="submit" name="btnG" value="검색">            
+          </td>
+      </tr>
+    </table>
+  </form>
+  
+    
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+
+    
+  <hr>
+  
+ 
+
+</body>
+</html>

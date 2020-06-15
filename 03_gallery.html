@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galary</title>
+    <style type="text/css">
+    body {
+        background-image: url('image/낙타.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h1 {
+        float:center;
+        color: orangered;
+        font-family: monospace;
+        text-align: center;
+    }      
+    header>ul>li {
+        padding: 40px;
+        display: inline-block;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+        color:#000;
+    }
+    #gallery{
+        width: 350px;        
+        margin: 30px auto;
+        border: 1px solid #999;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    }
+    #gallery img{
+        border: 1px solid #666;
+    }
+    #photo{
+        text-align: center;
+    }
+    #photo_list ul{
+        width: 900px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    #photo_list ul li {
+        width: 100px;
+        float: left;
+        text-align: center;        
+    }
+    #photo_list {
+        width: 300px;
+        margin: 10px auto;
+        overflow: hidden;
+    }
+    .btn_wrap {
+        text-align: center;
+    }
+    .btn_wrap a {
+        font-weight: bold;
+    }
+
+    </style>
+</head>
+
+<body>
+    <h1>Gallery</h1>
+    <br>
+    <hr>
+    <header>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="01_introduction.html">자기소개</a></li>
+            <li><a href="02_roadmap.html">로드멥</a></li>
+            <!-- <li><a href="#">자료실</a></li>
+            <li><a href="#">자유게시판</a></li> -->
+        </ul>
+        <hr>            
+    </header>
+    
+    <script>        
+    window.onload = function(){
+        var list_zone = document.getElementById("inner_list");
+        var list_a = list_zone.getElementsByTagName("a");
+    for(var i=0; i<list_a.length; i++){
+        list_a[i].onclick = function(){
+            var ph = document.getElementById("photo").children[0];
+            ph.src = this.href;
+            return false;
+        }
+    }
+    var n_btn = document.getElementById("btn_next");
+    var m_num = 0;
+    n_btn.onclick = function(){
+        if(m_num >= list_a.length-3)
+            return false;        
+        m_num++;
+        list_zone.style.marginLeft = -100 * m_num + "px";
+        return false;
+    }
+    var b_btn = document.getElementById("btn_before");
+    b_btn.onclick = function(){
+        if(m_num <= 0)
+            return false;        
+        m_num--;
+        list_zone.style.marginLeft = -100 * m_num + "px";
+    }
+}
+
+    </script>
+
+    <div id="gallery">
+       <p id="photo">
+           <img src="image/사막1.jpg" width="320" alt=""/>
+       </p>
+       <div id="photo_list">
+           <ul id="inner_list">
+               <li><a href="image/사막1.jpg">
+                <img src="image/사막1.jpg" width="100" alt="사막1"></a></li>
+               <li><a href="image/사막2.jpg">
+                <img src="image/사막2.jpg" width="100" alt="사막2"></a></li>
+               <li><a href="image/사막3.jpg">
+                <img src="image/사막3.jpg" width="100" alt="사막3"></a></li>
+               <li><a href="image/아부다비.jpg">
+                <img src="image/아부다비.jpg" width="100" alt="아부다비"></a></li>
+           </ul>
+       </div>
+       <p class="btn_wrap">
+           <a href="#" id="btn_before">&lt;</a>
+           <a href="#" id="btn_next">&gt;</a>
+       </p> 
+    </div>
+
+
+</body>
+</html>
